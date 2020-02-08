@@ -27,7 +27,11 @@ pipeline {
         }
         stage('Msg Notification') {
             steps {                                
-                build "msg-notification"               
+                mail bcc: '', body: '''Dear all,
+
+This mail is sending with purpose is testing build pipeline job from our Jenkins Server.
+
+Best Regards.''', cc: 'ledangkhoa95@outlook.com.vn', from: '', replyTo: '', subject: 'Test build', to: 'dangkhoa22031995@gmail.com'               
             }
         }
     }
