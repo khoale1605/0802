@@ -35,5 +35,4 @@ pipeline {
                 Best Regards.''', cc: 'ledangkhoa95@outlook.com.vn', from: '', replyTo: '', subject: 'Test build', to: 'dangkhoa22031995@gmail.com'               
             }
         }
-    }
 }
