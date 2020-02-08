@@ -29,11 +29,11 @@ pipeline {
         stage ('Email Notification') {
             steps {
                 mail bcc: '', body: '''
-                Dear all. 
-                The new deployment for BRI TEST env was done.
+                Dear all,
 
-                Thank you.''', cc: '', from: '', replyTo: '', subject: 'BRI TEST - Deployment Successfully ', to: 'ledangkhoa95@outlook.com.vn'
-            }  
+                This email is sent for purpose test build pipeline job from our Jenkins local.
+
+                Best Regards.''', cc: 'khoadang.le2@dxc.com, dangkhoa22031995@gmail.com', from: '', replyTo: '', subject: 'Build Test', to: 'ledangkhoa95@outlook.com.vn'
         }
     }
 }
