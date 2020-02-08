@@ -34,6 +34,7 @@ pipeline {
                 This email is sent for purpose test build pipeline job from our Jenkins local.
 
                 Best Regards.''', cc: 'khoadang.le2@dxc.com, dangkhoa22031995@gmail.com', from: '', replyTo: '', subject: 'Build Test', to: 'ledangkhoa95@outlook.com.vn'
-        }
+            }   
+        }   
     }
 }
