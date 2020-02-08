@@ -26,23 +26,13 @@ pipeline {
                 }
             }
         }
-        stage('Infra Discovery') {
-            steps {                                
-                build "infra-discovery"               
-            }
-        }
-        stage('Infra Api Manager') {
-            steps {                                
-                build "infra-api_manager"               
-            }
-        }
         stage ('Email Notification') {
             steps {
                 mail bcc: '', body: '''
                 Dear all. 
                 The new deployment for BRI TEST env was done.
 
-                Thank you.''', cc: '', from: '', replyTo: '', subject: 'BRI TEST - Deployment Successfully ', to: 'khoadang.le2@dxc.com'
+                Thank you.''', cc: '', from: '', replyTo: '', subject: 'BRI TEST - Deployment Successfully ', to: 'ledangkhoa95@outlook.com.vn'
             }  
         }
     }
