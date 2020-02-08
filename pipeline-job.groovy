@@ -7,23 +7,33 @@ pipeline {
     stages {
         stage ('Build Stage') {
             steps {
-                withMaven(maven : 'MAVEN_DEFAULT') {
+                withMaven(maven : 'mvn') {
                     bat 'mvn clean install'
                 }
             }
         }
         stage ('Test Stage') {
             steps {
-                withMaven(maven : 'MAVEN_DEFAULT') {
+                withMaven(maven : 'mvn') {
                     bat 'mvn clean install'
                 }
             }
         }
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'MAVEN_DEFAULT') {
+                withMaven(maven : 'mvn') {
                     bat 'mvn clean install'
                 }
+            }
+        }
+        stage('Infra Discovery') {
+            steps {                                
+                build "infra-discovery"               
+            }
+        }
+        stage('Infra Api Manager') {
+            steps {                                
+                build "infra-api_manager"               
             }
         }
         stage ('Email Notification') {
