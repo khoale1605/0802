@@ -7,32 +7,33 @@ pipeline {
     stages {
         stage ('Build Stage') {
             steps {
-                build "Build Stage"
+                withMaven(maven : 'MAVEN_DEFAULT') {
+                    bat 'mvn clean install'
                 }
             }
         }
         stage ('Test Stage') {
             steps {
-                withMaven(maven : 'mvn') {
+                withMaven(maven : 'MAVEN_DEFAULT') {
                     bat 'mvn clean install'
                 }
             }
         }
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'mvn') {
+                withMaven(maven : 'MAVEN_DEFAULT') {
                     bat 'mvn clean install'
                 }
             }
         }
-        stage('Msg Notification') {
-            steps {                                
+        stage ('Email Notification') {
+            steps {
                 mail bcc: '', body: '''
-                Dear all,
+                Dear all. 
+                The new deployment for BRI TEST env was done.
 
-                This mail is sending with purpose is testing build pipeline job from our Jenkins Server.
-
-                Best Regards.''', cc: 'ledangkhoa95@outlook.com.vn', from: '', replyTo: '', subject: 'Test build', to: 'dangkhoa22031995@gmail.com'               
-            }
+                Thank you.''', cc: '', from: '', replyTo: '', subject: 'BRI TEST - Deployment Successfully ', to: 'khoadang.le2@dxc.com'
+            }  
         }
+    }
 }
